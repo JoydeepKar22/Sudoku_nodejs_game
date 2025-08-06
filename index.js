@@ -11,7 +11,7 @@ app.use(cors()); // Allows communication between frontend and backend
 app.use(express.json()); // Parses incoming JSON requests
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static( 'public'));
 
 // API routes
 app.use('/api/games', gameApiRoutes);
