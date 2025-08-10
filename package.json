@@ -4,7 +4,8 @@
   "description": "A fun game",
   "main": "api/index.js",
   "scripts": {
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "build": "echo'Forcing a new build environment;"
   },
   "keywords": [],
   "author": "",
