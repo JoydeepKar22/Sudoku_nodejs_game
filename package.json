@@ -1,7 +1,7 @@
 {
   "name": "sudoku-vscode",
   "version": "1.0.0",
-  "description": "",
+  "description": "A fun game",
   "main": "api/index.js",
   "scripts": {
     "start": "node api/index.js"
