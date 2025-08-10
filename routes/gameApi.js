@@ -1,8 +1,15 @@
 const express = require('express');
+<<<<<<< HEAD
 const SudokuGame = require('../logic/sudokuGame');
 const router = express.Router();
 
 // In-memory store for active games. In a real app, use a database.
+=======
+const SudokuGame = require('../logic/SudokuGame');
+const router = express.Router();
+
+// In-memory store for active games.
+>>>>>>> 81539fb (Final project setup)
 const activeGames = {};
 
 // POST /api/games - Create a new game
@@ -11,7 +18,11 @@ router.post('/', (req, res) => {
   const game = new SudokuGame(difficulty);
   game.startGame();
   activeGames[game.gameId] = game;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 81539fb (Final project setup)
   res.json({
     gameId: game.gameId,
     board: game.board.toPlainObject(),

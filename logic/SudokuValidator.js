@@ -4,16 +4,24 @@ class SudokuValidator {
 
     // Check row
     for (let c = 0; c < 9; c++) {
+<<<<<<< HEAD
       if (board.grid[row][c].value === value && c !== col) {
         return false;
       }
+=======
+      if (board.grid[row][c].value === value && c !== col) return false;
+>>>>>>> 81539fb (Final project setup)
     }
 
     // Check column
     for (let r = 0; r < 9; r++) {
+<<<<<<< HEAD
       if (board.grid[r][col].value === value && r !== row) {
         return false;
       }
+=======
+      if (board.grid[r][col].value === value && r !== row) return false;
+>>>>>>> 81539fb (Final project setup)
     }
 
     // Check 3x3 sub-grid
@@ -26,18 +34,25 @@ class SudokuValidator {
         }
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 81539fb (Final project setup)
     return true;
   }
 
   static validateFullBoard(board) {
+<<<<<<< HEAD
       // Clear all previous errors
+=======
+>>>>>>> 81539fb (Final project setup)
       for(let r = 0; r < 9; r++) {
           for(let c = 0; c < 9; c++) {
               board.grid[r][c].isError = false;
           }
       }
 
+<<<<<<< HEAD
       let hasErrors = false;
       for(let r = 0; r < 9; r++) {
           for(let c = 0; c < 9; c++) {
@@ -51,14 +66,28 @@ class SudokuValidator {
           }
       }
       return !hasErrors;
+=======
+      for(let r = 0; r < 9; r++) {
+          for(let c = 0; c < 9; c++) {
+              const cell = board.grid[r][c];
+              if(cell.value !== 0 && !this.isMoveValid(board, r, c, cell.value)) {
+                  cell.isError = true;
+              }
+          }
+      }
+>>>>>>> 81539fb (Final project setup)
   }
 
   static isBoardSolved(board, solution) {
      for(let r = 0; r < 9; r++) {
          for(let c = 0; c < 9; c++) {
+<<<<<<< HEAD
              if(board.grid[r][c].value !== solution[r][c]) {
                  return false;
              }
+=======
+             if(board.grid[r][c].value !== solution[r][c]) return false;
+>>>>>>> 81539fb (Final project setup)
          }
      }
      return true;

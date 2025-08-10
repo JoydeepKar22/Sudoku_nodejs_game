@@ -1,14 +1,30 @@
 {
+<<<<<<< HEAD
   "name": "sudoku-server",
   "version": "1.0.0",
   "description": "Sudoku game server",
+=======
+  "name": "sudoku-vscode",
+  "version": "1.0.0",
+  "description": "",
+>>>>>>> 81539fb (Final project setup)
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+<<<<<<< HEAD
   "dependencies": {
     "express": "^4.19.2",
     "cors": "^2.8.5",
     "uuid": "^9.0.1"
+=======
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "uuid": "^11.1.0"
+>>>>>>> 81539fb (Final project setup)
   }
 }
