@@ -7,6 +7,9 @@
     "start": "node api/index.js",
     "build": "echo'Forcing a new build environment;"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
