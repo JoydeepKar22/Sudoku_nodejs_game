@@ -1,29 +1,31 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const PuzzleGenerator = require('./logic/PuzzleGenerator'); // We'll use the real generator
 
 app.use(cors());
 app.use(express.json());
 
-// This is the only API endpoint. It always returns the same simple puzzle.
+// The only API endpoint for creating a game
 app.post('/api/games', (req, res) => {
-  console.log("--- TEST SERVER: /api/games endpoint was reached successfully! ---");
+  try {
+    const difficulty = req.body.difficulty || 'EASY';
+    const generator = new PuzzleGenerator();
+    const { puzzle, solution } = generator.generate(difficulty);
 
-  // A simple, hardcoded board for testing
-  const testBoard = Array.from({ length: 9 }, (_, r) => 
-    Array.from({ length: 9 }, (_, c) => ({
-      value: (r === 0 && c === 0) ? 1 : 0, // Put a '1' in the top-left corner
-      isGiven: (r === 0 && c === 0),
-      isError: false,
-      notes: []
-    }))
-  );
+    // This is a simplified game object for the response
+    const game = {
+      gameId: `game_${Date.now()}`,
+      board: new (require('./logic/Board'))(puzzle).toPlainObject(),
+      difficulty: difficulty,
+      // We don't need the full game logic for this to work
+    };
 
-  res.json({
-    gameId: 'test-game',
-    board: testBoard,
-    difficulty: 'TEST'
-  });
+    res.status(200).json(game);
+  } catch (error) {
+    console.error("Error generating puzzle:", error);
+    res.status(500).json({ error: "Failed to generate puzzle" });
+  }
 });
 
 // Export the app for Vercel
