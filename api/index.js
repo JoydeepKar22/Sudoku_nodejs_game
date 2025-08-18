@@ -11,11 +11,8 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-// This path needs to be adjusted to find the public folder from inside the api folder
-app.use(express.static(path.join(__dirname, '../public')));
+
 
 app.use('/api/games', gameApiRoutes);
 
-app.listen(port, () => {
-  console.log(`Sudoku server running at http://localhost:${port}`);
-});
+module.exports = app;
