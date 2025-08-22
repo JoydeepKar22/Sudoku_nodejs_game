@@ -1,0 +1,35 @@
+body {
+    font-family: 'Inter', sans-serif;
+    touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+}
+
+/* Grid lines */
+.sudoku-cell:nth-child(3n) { border-right-width: 3px; }
+.sudoku-cell:nth-child(9n) { border-right-width: 1px; }
+
+/* We need to target a wrapper for the row border styles */
+.sudoku-row:nth-child(3n) { border-bottom-width: 3px; }
+.sudoku-row:nth-child(9) { border-bottom-width: 1px; }
+
+/* Cell highlighting */
+.selected {
+    background-color: #dbeafe !important; /* blue-100 */
+}
+.highlighted {
+    background-color: #e5e7eb; /* gray-200 */
+}
+.given.highlighted {
+     background-color: #d1d5db; /* gray-300 */
+}
+.error {
+    background-color: #fee2e2 !important; /* red-100 */
+    color: #b91c1c !important; /* red-700 */
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.spinner {
+    animation: spin 1s linear infinite;
+}
